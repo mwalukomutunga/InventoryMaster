@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "POSBeta.Category";
+
+package category;
+
+service Category {
+  rpc AddCategory (CategoryModel) returns (CategoryModel);
+}
+
+message CategoryModel {
+  string name = 1;
+}
+
+
