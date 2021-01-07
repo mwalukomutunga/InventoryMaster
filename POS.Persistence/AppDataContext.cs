@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using POS.Domain.Contracts;
 using POS.Domain.Enums;
 using POS.Domain.Models;
@@ -8,18 +9,10 @@ using System.Text;
 
 namespace POS.Persistence
 {
-  public  class AppDataContext : DbContext
+  public  class AppDataContext : IdentityDbContext
     {
         public AppDataContext(DbContextOptions<AppDataContext> options) : base(options)
         { }
-        //public AppDataContext() : base()
-        //{
-
-        //}
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlite("Data Source=POS.db");
-        //}
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<InvoiceLineItem> InvoiceLineItems { get; set; }
         public DbSet<Customer> Customers { get; set; }
