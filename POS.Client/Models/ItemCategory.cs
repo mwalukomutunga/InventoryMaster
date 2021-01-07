@@ -1,10 +1,8 @@
-﻿using POS.Domain.Contracts;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using POS.Client.Interfaces;
 
-namespace POS.Domain.Models
+namespace POS.Client.Models
 {
     public class ItemCategory : Base
     {
@@ -12,15 +10,18 @@ namespace POS.Domain.Models
         {
             CreatedAt = IDateTime.Now();
             UpdatedAt = IDateTime.Now();
-            CategoryId = Guid.NewGuid();
             Terminus = Environment.MachineName;
             //  CreatedBy = null;
             // UpdatedBy = null;
 
         }
+        [Display(AutoGenerateField = false)]
         [Key]
         public Guid CategoryId { get; set; }
+
+        [Display(GroupName = "<ItemCategory>", Name = "Name")]
         public string Name { get; set; }
+        [Display(GroupName = "<ItemCategory>", Name = "Description")]
         public string Description { get; set; }
     }
 }

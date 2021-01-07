@@ -1,15 +1,31 @@
 ﻿syntax = "proto3";
+import "google/protobuf/empty.proto";
 
 option csharp_namespace = "POSBeta.Category";
 
 package category;
 
 service Category {
-  rpc AddCategory (CategoryModel) returns (CategoryModel);
+  rpc AddCategory (CategoryModel) returns (google.protobuf.Empty);
+  rpc DeleteCategory (CategoryModel) returns (google.protobuf.Empty);
+  rpc GetCategory (CategoryModel) returns (CategoryModel);
+  rpc GetAllCategories (google.protobuf.Empty) returns (Categories);
+  rpc UpdateCategory (CategoryModel) returns (google.protobuf.Empty);
 }
 
 message CategoryModel {
-  string name = 1;
+    string Id = 1;
+    string name = 2;
+    string Description = 3;
+}
+message Error {
+    string message = 2;
 }
 
+message CategoryResult{
+	bool isCorrect = 1;
+}
 
+message Categories {
+    repeated CategoryModel CategoryModels = 1;
+}

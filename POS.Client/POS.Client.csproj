@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>POS.Client</RootNamespace>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
@@ -10,5 +10,9 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.1.0" />
     <PackageReference Include="DevExpress.WindowsDesktop.Wpf" Version="20.1.*" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.34.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\POS.Shared\POS.Shared.csproj" />
   </ItemGroup>    
 </Project>

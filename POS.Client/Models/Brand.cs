@@ -1,26 +1,25 @@
-﻿using POS.Domain.Contracts;
+﻿using POS.Client.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
-namespace POS.Domain.Models
+namespace POS.Client.Models
 {
-    public class ItemCategory : Base
+    public class Brand: Base
     {
-        public ItemCategory()
+        public Brand()
         {
             CreatedAt = IDateTime.Now();
             UpdatedAt = IDateTime.Now();
-            CategoryId = Guid.NewGuid();
             Terminus = Environment.MachineName;
             //  CreatedBy = null;
             // UpdatedBy = null;
-
         }
+
+        [Display(AutoGenerateField = false)]
         [Key]
-        public Guid CategoryId { get; set; }
+        public Guid BrandId { get; set; }
+        [Display(GroupName = "<Brand>", Name = "Name")]
+        [Required]
         public string Name { get; set; }
-        public string Description { get; set; }
     }
 }
